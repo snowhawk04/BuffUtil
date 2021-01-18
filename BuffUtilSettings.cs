@@ -55,7 +55,7 @@ namespace BuffUtil
             ScourgeArrowWaitForInfused = new ToggleNode(true);
 
             PlagueBearer = new ToggleNode(false);
-            PlagueBearerKey = new HotkeyNode(Keys.R);
+            PlagueBearerKey = new HotkeyNode(Keys.W);
 
             RequireMinMonsterCount = new ToggleNode(false);
             NearbyMonsterCount = new RangeNode<int>(1, 1, 30);
