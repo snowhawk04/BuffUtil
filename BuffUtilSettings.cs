@@ -56,7 +56,7 @@ namespace BuffUtil
 
             PlagueBearer = new ToggleNode(false);
             PlagueBearerKey = new HotkeyNode(Keys.R);
-            PlagueBearerConnectedSkill = RangeNode<int>(1, 1, 13);
+            PlagueBearerConnectedSkill = new RangeNode<int>(1, 1, 13);
 
             RequireMinMonsterCount = new ToggleNode(false);
             NearbyMonsterCount = new RangeNode<int>(1, 1, 30);
