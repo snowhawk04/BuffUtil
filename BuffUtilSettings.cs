@@ -54,6 +54,10 @@ namespace BuffUtil
             ScourgeArrowUseLeftClick = new ToggleNode(false);
             ScourgeArrowWaitForInfused = new ToggleNode(true);
 
+            PlagueBearer = new ToggleNode(false);
+            PlagueBearerKey = new HotkeyNode(Keys.R);
+            PlagueBearerConnectedSkill = RangeNode<int>(1, 1, 13);
+
             RequireMinMonsterCount = new ToggleNode(false);
             NearbyMonsterCount = new RangeNode<int>(1, 1, 30);
             NearbyMonsterMaxDistance = new RangeNode<int>(500, 1, 2000);
