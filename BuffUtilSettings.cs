@@ -55,7 +55,8 @@ namespace BuffUtil
             ScourgeArrowWaitForInfused = new ToggleNode(true);
 
             PlagueBearer = new ToggleNode(false);
-            PlagueBearerKey = new HotkeyNode(Keys.W);
+            PlagueBearerKey = new HotkeyNode(Keys.Space);
+            PlagueBearerConnectedSkill = new RangeNode<int>(1, 1, 13);
 
             RequireMinMonsterCount = new ToggleNode(false);
             NearbyMonsterCount = new RangeNode<int>(1, 1, 30);
@@ -154,6 +155,9 @@ namespace BuffUtil
 
         [Menu("Plague Bearer Key", 6001, 6)] public HotkeyNode PlagueBearerKey { get; set; }
 
+        [Menu("Connected Skill", "Set the skill slot (1 = top left, 8 = bottom right)", 6002, 6)]
+        public RangeNode<int> PlagueBearerConnectedSkill { get; set; }
+        
         #endregion
 
         #region Blade Flurry
