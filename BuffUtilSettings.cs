@@ -71,17 +71,17 @@ namespace BuffUtil
 
         [Menu("Blood Rage", 1)] public ToggleNode BloodRage { get; set; }
 
-        [Menu("Blood Rage Key", "Which key to press to activate Blood Rage?", 11, 1)]
+        [Menu("Blood Rage Key", "Which key to press to activate Blood Rage?", 1001, 1)]
         public HotkeyNode BloodRageKey { get; set; }
 
 
-        [Menu("Connected Skill", "Set the skill slot (1 = top left, 8 = bottom right)", 12, 1)]
+        [Menu("Connected Skill", "Set the skill slot (1 = top left, 8 = bottom right)", 1002, 1)]
         public RangeNode<int> BloodRageConnectedSkill { get; set; }
 
-        [Menu("Max HP", "HP percent above which skill is not cast", 13, 1)]
+        [Menu("Max HP", "HP percent above which skill is not cast", 1003, 1)]
         public RangeNode<int> BloodRageMaxHP { get; set; }
 
-        [Menu("Max Mana", "Mana percent above which skill is not cast", 14, 1)]
+        [Menu("Max Mana", "Mana percent above which skill is not cast", 1004, 1)]
         public RangeNode<int> BloodRageMaxMP { get; set; }
 
         #endregion
@@ -90,12 +90,12 @@ namespace BuffUtil
 
         [Menu("Steel Skin", 2)] public ToggleNode SteelSkin { get; set; }
 
-        [Menu("Steel Skin Key", 21, 2)] public HotkeyNode SteelSkinKey { get; set; }
+        [Menu("Steel Skin Key", 2001, 2)] public HotkeyNode SteelSkinKey { get; set; }
 
-        [Menu("Connected Skill", "Set the skill slot (1 = top left, 8 = bottom right)", 22, 2)]
+        [Menu("Connected Skill", "Set the skill slot (1 = top left, 8 = bottom right)", 2002, 2)]
         public RangeNode<int> SteelSkinConnectedSkill { get; set; }
 
-        [Menu("Max HP", "HP percent above which skill is not cast", 23, 2)]
+        [Menu("Max HP", "HP percent above which skill is not cast", 2003, 2)]
         public RangeNode<int> SteelSkinMaxHP { get; set; }
 
         #endregion
@@ -104,12 +104,12 @@ namespace BuffUtil
 
         [Menu("Immortal Call", 3)] public ToggleNode ImmortalCall { get; set; }
 
-        [Menu("Immortal Call Key", 31, 3)] public HotkeyNode ImmortalCallKey { get; set; }
+        [Menu("Immortal Call Key", 3001, 3)] public HotkeyNode ImmortalCallKey { get; set; }
 
-        [Menu("Connected Skill", "Set the skill slot (1 = top left, 8 = bottom right)", 32, 3)]
+        [Menu("Connected Skill", "Set the skill slot (1 = top left, 8 = bottom right)", 3002, 3)]
         public RangeNode<int> ImmortalCallConnectedSkill { get; set; }
 
-        [Menu("Max HP", "HP percent above which skill is not cast", 33, 3)]
+        [Menu("Max HP", "HP percent above which skill is not cast", 3003, 3)]
         public RangeNode<int> ImmortalCallMaxHP { get; set; }
 
         #endregion
@@ -118,12 +118,12 @@ namespace BuffUtil
 
         [Menu("Molten Shell", 4)] public ToggleNode MoltenShell { get; set; }
 
-        [Menu("Molten Shell Key", 41, 4)] public HotkeyNode MoltenShellKey { get; set; }
+        [Menu("Molten Shell Key", 4001, 4)] public HotkeyNode MoltenShellKey { get; set; }
 
-        [Menu("Connected Skill", "Set the skill slot (1 = top left, 8 = bottom right)", 42, 4)]
+        [Menu("Connected Skill", "Set the skill slot (1 = top left, 8 = bottom right)", 4002, 4)]
         public RangeNode<int> MoltenShellConnectedSkill { get; set; }
 
-        [Menu("Max HP", "HP percent above which skill is not cast", 43, 4)]
+        [Menu("Max HP", "HP percent above which skill is not cast", 4003, 4)]
         public RangeNode<int> MoltenShellMaxHP { get; set; }
 
         #endregion
@@ -132,36 +132,27 @@ namespace BuffUtil
 
         [Menu("Phase Run", 5)] public ToggleNode PhaseRun { get; set; }
 
-        [Menu("Phase Run Key", 51, 5)] public HotkeyNode PhaseRunKey { get; set; }
+        [Menu("Phase Run Key", 5001, 5)] public HotkeyNode PhaseRunKey { get; set; }
 
-        [Menu("Connected Skill", "Set the skill slot (1 = top left, 8 = bottom right)", 52, 5)]
+        [Menu("Connected Skill", "Set the skill slot (1 = top left, 8 = bottom right)", 5002, 5)]
         public RangeNode<int> PhaseRunConnectedSkill { get; set; }
 
-        [Menu("Max HP", "HP percent above which skill is not cast", 53, 5)]
+        [Menu("Max HP", "HP percent above which skill is not cast", 5003, 5)]
         public RangeNode<int> PhaseRunMaxHP { get; set; }
             
-        [Menu("Move time", "Time in ms spent moving after which skill can be cast", 54, 5)]
+        [Menu("Move time", "Time in ms spent moving after which skill can be cast", 5004, 5)]
         public RangeNode<int> PhaseRunMinMoveTime { get; set; }
             
-        [Menu("BV Stacks", "Blade Vortex stacks required to cast Phase Run", 55, 5)]
+        [Menu("BV Stacks", "Blade Vortex stacks required to cast Phase Run", 5005, 5)]
         public RangeNode<int> PhaseRunMinBVStacks { get; set; }
 
         #endregion
 
-        #region Withering Step
+        #region Plague Bearer
 
-        [Menu("Withering Step", 6)] public ToggleNode WitheringStep { get; set; }
+        [Menu("Plague Bearer", 6)] public ToggleNode PlagueBearer { get; set; }
 
-        [Menu("Withering Step Key", 61, 6)] public HotkeyNode WitheringStepKey { get; set; }
-
-        [Menu("Connected Skill", "Set the skill slot (1 = top left, 8 = bottom right)", 62, 6)]
-        public RangeNode<int> WitheringStepConnectedSkill { get; set; }
-
-        [Menu("Max HP", "HP percent above which skill is not cast", 63, 6)]
-        public RangeNode<int> WitheringStepMaxHP { get; set; }
-            
-        [Menu("Move time", "Time in ms spent moving after which skill can be cast", 64, 6)]
-        public RangeNode<int> WitheringStepMinMoveTime { get; set; }
+        [Menu("Plague Bearer Key", 6001, 6)] public HotkeyNode PlagueBearerKey { get; set; }
 
         #endregion
 
@@ -169,13 +160,13 @@ namespace BuffUtil
 
         [Menu("Blade Flurry", "Use mouse click to release Blade Flurry charges", 7)] public ToggleNode BladeFlurry { get; set; }
 
-        [Menu("Min charges", "Minimal amount of BF charges to release", 71, 7)]
+        [Menu("Min charges", "Minimal amount of BF charges to release", 7001, 7)]
         public RangeNode<int> BladeFlurryMinCharges { get; set; }
 
-        [Menu("Use left click", "Use left click instead of right click to release charges", 72, 7)] 
+        [Menu("Use left click", "Use left click instead of right click to release charges", 7002, 7)] 
         public ToggleNode BladeFlurryUseLeftClick { get; set; }
         
-        [Menu("Wait for Infused Channeling buff", "Wait for Infused Channeling buff before release", 73, 7)] 
+        [Menu("Wait for Infused Channeling buff", "Wait for Infused Channeling buff before release", 7003, 7)] 
         public ToggleNode BladeFlurryWaitForInfused { get; set; }
 
         #endregion
@@ -184,21 +175,30 @@ namespace BuffUtil
 
         [Menu("Scourge Arrow", "Use mouse click to release Scourge Arrow charges", 8)] public ToggleNode ScourgeArrow { get; set; }
 
-        [Menu("Min charges", "Minimal amount of BF charges to release", 81, 8)]
+        [Menu("Min charges", "Minimal amount of BF charges to release", 8001, 8)]
         public RangeNode<int> ScourgeArrowMinCharges { get; set; }
 
-        [Menu("Use left click", "Use left click instead of right click to release charges", 82, 8)] 
+        [Menu("Use left click", "Use left click instead of right click to release charges", 8002, 8)] 
         public ToggleNode ScourgeArrowUseLeftClick { get; set; }
         
-        [Menu("Wait for Infused Channeling buff", "Wait for Infused Channeling buff before release", 83, 8)] 
+        [Menu("Wait for Infused Channeling buff", "Wait for Infused Channeling buff before release", 8003, 8)] 
         public ToggleNode ScourgeArrowWaitForInfused { get; set; }
         #endregion
         
-        #region Plague Bearer
+        #region Withering Step
 
-        [Menu("Plague Bearer", 9)] public ToggleNode PlagueBearer { get; set; }
+        [Menu("Withering Step", 9)] public ToggleNode WitheringStep { get; set; }
 
-        [Menu("Plague Bearer Key", 91, 9)] public HotkeyNode PlagueBearerKey { get; set; }
+        [Menu("Withering Step Key", 9001, 9)] public HotkeyNode WitheringStepKey { get; set; }
+
+        [Menu("Connected Skill", "Set the skill slot (1 = top left, 8 = bottom right)", 9002, 9)]
+        public RangeNode<int> WitheringStepConnectedSkill { get; set; }
+
+        [Menu("Max HP", "HP percent above which skill is not cast", 9003, 9)]
+        public RangeNode<int> WitheringStepMaxHP { get; set; }
+            
+        [Menu("Move time", "Time in ms spent moving after which skill can be cast", 9004, 9)]
+        public RangeNode<int> WitheringStepMinMoveTime { get; set; }
 
         #endregion
 
@@ -206,22 +206,22 @@ namespace BuffUtil
 
         [Menu("Misc", 10)] public EmptyNode MiscSettings { get; set; }
 
-        [Menu("Nearby monsters", "Require a minimum count of nearby monsters to cast buffs?", 101, 10)]
+        [Menu("Nearby monsters", "Require a minimum count of nearby monsters to cast buffs?", 10001, 10)]
         public ToggleNode RequireMinMonsterCount { get; set; }
 
-        [Menu("Range", "Minimum count of nearby monsters to cast", 102, 10)]
+        [Menu("Range", "Minimum count of nearby monsters to cast", 10002, 10)]
         public RangeNode<int> NearbyMonsterCount { get; set; }
 
-        [Menu("Range", "Max distance of monsters to player to count as nearby", 103, 10)]
+        [Menu("Range", "Max distance of monsters to player to count as nearby", 10003, 10)]
         public RangeNode<int> NearbyMonsterMaxDistance { get; set; }
 
-        [Menu("Disable in hideout", "Disable the plugin in hideout?", 104, 10)]
+        [Menu("Disable in hideout", "Disable the plugin in hideout?", 10004, 10)]
         public ToggleNode DisableInHideout { get; set; }
         
-        [Menu("Debug", "Print debug messages?", 105, 10)]
+        [Menu("Debug", "Print debug messages?", 10005, 10)]
         public ToggleNode Debug { get; set; }
         
-        [Menu("Silence errors", "Hide error messages?", 106, 10)]
+        [Menu("Silence errors", "Hide error messages?", 10006, 10)]
         public ToggleNode SilenceErrors { get; set; }
 
         #endregion
