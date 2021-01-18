@@ -56,7 +56,6 @@ namespace BuffUtil
 
             PlagueBearer = new ToggleNode(false);
             PlagueBearerKey = new HotkeyNode(Keys.R);
-            PlagueBearerConnectedSkill = new RangeNode<int>(1, 1, 13);
 
             RequireMinMonsterCount = new ToggleNode(false);
             NearbyMonsterCount = new RangeNode<int>(1, 1, 30);
@@ -200,9 +199,6 @@ namespace BuffUtil
         [Menu("Plague Bearer", 9)] public ToggleNode PlagueBearer { get; set; }
 
         [Menu("Plague Bearer Key", 91, 9)] public HotkeyNode PlagueBearerKey { get; set; }
-
-        [Menu("Connected Skill", "Set the skill slot (1 = top left, 8 = bottom right)", 92, 9)]
-        public RangeNode<int> PlagueBearerConnectedSkill { get; set; }
 
         #endregion
 
