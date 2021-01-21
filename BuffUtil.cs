@@ -445,6 +445,9 @@ namespace BuffUtil
                 if (!Settings.PlagueBearer)
                     return;
                 
+                if (lastPlagueBearerCast.HasValue && (currentTime - lastPlagueBearerCast.Value < 0))
+                    return;
+                    
                 var isBuffEnabled = GetBuff(C.PlagueBearer.PassiveBuffName);
                 if (isBuffEnabled == null) {
                     if (Settings.Debug) {
@@ -469,14 +472,12 @@ namespace BuffUtil
                     return;
                 }
 
-                var hasBuff = HasBuff(C.PlagueBearer.BuffName);
-                if (!hasBuff.HasValue || hasBuff.Value && NearbyMonsterCheck())
+                if (NearbyMonsterCheck())
                 {
                     if (Settings.Debug)
                         LogMessage("Accumulated max Plague Bearer", 1);
                     inputSimulator.Keyboard.KeyPress((VirtualKeyCode)Settings.PlagueBearerKey.Value);
                     lastPlagueBearerCast = currentTime + TimeSpan.FromSeconds(rand.NextDouble(0, 0.2));
-
                 }
             }
             catch (Exception ex)
