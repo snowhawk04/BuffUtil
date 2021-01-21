@@ -452,30 +452,31 @@ namespace BuffUtil
                     }
                     inputSimulator.Keyboard.KeyPress((VirtualKeyCode)Settings.PlagueBearerKey.Value);
                     lastPlagueBearerCast = currentTime + TimeSpan.FromSeconds(rand.NextDouble(0, 0.2));
-                    continue;
+                    return;
                 }
                 
                 var stacksBuff = GetBuff(C.PlagueBearer.BuffName);
                 if (stacksBuff == null)
                 {
+                    if (!NearbyMonsterCheck()) {
+                        if (Settings.Debug)
+                            LogMessage("Disabling as not enough monsters in range", 1);
+                        inputSimulator.Keyboard.KeyPress((VirtualKeyCode)Settings.PlagueBearerKey.Value);
+                        lastPlagueBearerCast = currentTime + TimeSpan.FromSeconds(rand.NextDouble(0, 0.2));
+                    }
                     if (Settings.Debug)
                         LogMessage("Incubating max Plague Bearer", 1);
                     return;
                 }
 
                 var hasBuff = HasBuff(C.PlagueBearer.BuffName);
-                if (!hasBuff.HasValue || hasBuff.Value)
+                if (!hasBuff.HasValue || hasBuff.Value && NearbyMonsterCheck())
                 {
                     if (Settings.Debug)
                         LogMessage("Accumulated max Plague Bearer", 1);
                     inputSimulator.Keyboard.KeyPress((VirtualKeyCode)Settings.PlagueBearerKey.Value);
                     lastPlagueBearerCast = currentTime + TimeSpan.FromSeconds(rand.NextDouble(0, 0.2));
 
-                } else if (!NearbyMonsterCheck()) {
-                    if (Settings.Debug)
-                        LogMessage("Disabling as not enough monsters in range", 1);
-                    inputSimulator.Keyboard.KeyPress((VirtualKeyCode)Settings.PlagueBearerKey.Value);
-                    lastPlagueBearerCast = currentTime + TimeSpan.FromSeconds(rand.NextDouble(0, 0.2));
                 }
             }
             catch (Exception ex)
