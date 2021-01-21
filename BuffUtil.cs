@@ -444,7 +444,17 @@ namespace BuffUtil
             {
                 if (!Settings.PlagueBearer)
                     return;
-
+                
+                var isBuffEnabled = GetBuff(C.PlagueBearer.PassiveBuffName);
+                if (isBuffEnabled == null) {
+                    if (Settings.Debug) {
+                        LogMessage("Enabling Plague Bearer Buff", 1);
+                    }
+                    inputSimulator.Keyboard.KeyPress((VirtualKeyCode)Settings.PlagueBearerKey.Value);
+                    lastPlagueBearerCast = currentTime + TimeSpan.FromSeconds(rand.NextDouble(0, 0.2));
+                    continue;
+                }
+                
                 var stacksBuff = GetBuff(C.PlagueBearer.BuffName);
                 if (stacksBuff == null)
                 {
@@ -453,19 +463,20 @@ namespace BuffUtil
                     return;
                 }
 
-                if (!NearbyMonsterCheck())
-                    return;
-
                 var hasBuff = HasBuff(C.PlagueBearer.BuffName);
                 if (!hasBuff.HasValue || hasBuff.Value)
                 {
                     if (Settings.Debug)
-                        LogMessage("Accumilated max Plague Bearer", 1);
+                        LogMessage("Accumulated max Plague Bearer", 1);
                     inputSimulator.Keyboard.KeyPress((VirtualKeyCode)Settings.PlagueBearerKey.Value);
                     lastPlagueBearerCast = currentTime + TimeSpan.FromSeconds(rand.NextDouble(0, 0.2));
 
+                } else if (!NearbyMonsterCheck()) {
+                    if (Settings.Debug)
+                        LogMessage("Disabling as not enough monsters in range", 1);
+                    inputSimulator.Keyboard.KeyPress((VirtualKeyCode)Settings.PlagueBearerKey.Value);
+                    lastPlagueBearerCast = currentTime + TimeSpan.FromSeconds(rand.NextDouble(0, 0.2));
                 }
-
             }
             catch (Exception ex)
             {
