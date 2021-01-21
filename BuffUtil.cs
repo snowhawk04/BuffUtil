@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -445,37 +445,37 @@ namespace BuffUtil
                 if (!Settings.PlagueBearer)
                     return;
                 
-                if (lastPlagueBearerCast.HasValue && DateTime.Compare(currentTime.Value, lastPlagueBearerCast.Value) == -1)
+                if (lastPlagueBearerCast.HasValue && DateTime(currentTime.Value, lastPlagueBearerCast.Value) == -1) {
                     return;
-                    
-                var isBuffEnabled = GetBuff(C.PlagueBearer.PassiveBuffName);
-                if (isBuffEnabled == null) {
-                    if (Settings.Debug) {
-                        LogMessage("Enabling Plague Bearer Buff", 1);
-                    }
+                }
+                
+                var plagueBearerAuraEnabled = GetBuff(C.PlagueBearer.PassiveBuffName);
+                if (plagueBearerAuraEnabled == null) {
                     inputSimulator.Keyboard.KeyPress((VirtualKeyCode)Settings.PlagueBearerKey.Value);
                     lastPlagueBearerCast = currentTime + TimeSpan.FromSeconds(rand.NextDouble(0, 0.2));
                     return;
                 }
-                
+
                 var stacksBuff = GetBuff(C.PlagueBearer.BuffName);
                 if (stacksBuff == null)
                 {
+                    if (Settings.Debug)
+                        LogMessage("Incubating max Plague Bearer", 1);
                     if (!NearbyMonsterCheck()) {
-                        if (Settings.Debug)
-                            LogMessage("Disabling as not enough monsters in range", 1);
                         inputSimulator.Keyboard.KeyPress((VirtualKeyCode)Settings.PlagueBearerKey.Value);
                         lastPlagueBearerCast = currentTime + TimeSpan.FromSeconds(rand.NextDouble(0, 0.2));
                     }
-                    if (Settings.Debug)
-                        LogMessage("Incubating max Plague Bearer", 1);
                     return;
                 }
 
-                if (NearbyMonsterCheck())
+                if (!NearbyMonsterCheck())
+                    return;
+
+                var hasBuff = HasBuff(C.PlagueBearer.BuffName);
+                if (NearbyMonsterCheck() && !hasBuff.HasValue || hasBuff.Value)
                 {
                     if (Settings.Debug)
-                        LogMessage("Accumulated max Plague Bearer", 1);
+                        LogMessage("Accumilated max Plague Bearer", 1);
                     inputSimulator.Keyboard.KeyPress((VirtualKeyCode)Settings.PlagueBearerKey.Value);
                     lastPlagueBearerCast = currentTime + TimeSpan.FromSeconds(rand.NextDouble(0, 0.2));
                 }
