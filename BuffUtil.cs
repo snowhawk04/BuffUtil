@@ -445,7 +445,7 @@ namespace BuffUtil
                 if (!Settings.PlagueBearer)
                     return;
                 
-                if (lastPlagueBearerCast.HasValue && DateTime(currentTime.Value, lastPlagueBearerCast.Value) == -1) {
+                if (lastPlagueBearerCast.HasValue && DateTime.Compare(currentTime.Value, lastPlagueBearerCast.Value) == -1) {
                     return;
                 }
                 
