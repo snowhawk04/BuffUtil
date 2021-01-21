@@ -445,7 +445,7 @@ namespace BuffUtil
                 if (!Settings.PlagueBearer)
                     return;
                 
-                if (lastPlagueBearerCast.HasValue && (currentTime - lastPlagueBearerCast.Value < 0))
+                if (lastPlagueBearerCast.HasValue && TimeSpan.Compare(currentTime, lastPlagueBearerCast.Value) == -1)
                     return;
                     
                 var isBuffEnabled = GetBuff(C.PlagueBearer.PassiveBuffName);
