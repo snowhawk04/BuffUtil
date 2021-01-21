@@ -79,6 +79,7 @@ namespace BuffUtil
         }
         public static class PlagueBearer
         {
+            public const string PassiveBuffName = "corrosive_shroud_buff";
             public const string BuffName = "corrosive_shroud_at_max_damage";
             public static readonly TimeSpan TimeBetweenCasts = TimeSpan.FromSeconds(1);
         }
