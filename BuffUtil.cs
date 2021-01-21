@@ -452,7 +452,7 @@ namespace BuffUtil
                 var plagueBearerAuraEnabled = GetBuff(C.PlagueBearer.PassiveBuffName);
                 if (plagueBearerAuraEnabled == null) {
                     inputSimulator.Keyboard.KeyPress((VirtualKeyCode)Settings.PlagueBearerKey.Value);
-                    lastPlagueBearerCast = currentTime + TimeSpan.FromSeconds(rand.NextDouble(0, 0.2));
+                    lastPlagueBearerCast = currentTime + TimeSpan.FromSeconds(rand.NextDouble(0.05, 0.2));
                     return;
                 }
 
@@ -460,7 +460,7 @@ namespace BuffUtil
                 if (stacksBuff == null)
                 {
                     if (Settings.Debug)
-                        LogMessage("Incubating max Plague Bearer", 1);
+                        LogMessage("Incubating plague.", 1);
                     return;
                 }
 
@@ -468,9 +468,9 @@ namespace BuffUtil
                     return;
 
                 if (Settings.Debug)
-                    LogMessage("Accumilated max Plague Bearer", 1);
+                    LogMessage("Accumulated maximum plague. Infecting.", 1);
                 inputSimulator.Keyboard.KeyPress((VirtualKeyCode)Settings.PlagueBearerKey.Value);
-                lastPlagueBearerCast = currentTime + TimeSpan.FromSeconds(rand.NextDouble(0, 0.2));
+                lastPlagueBearerCast = currentTime + TimeSpan.FromSeconds(rand.NextDouble(0.05, 0.2));
             }
             catch (Exception ex)
             {
