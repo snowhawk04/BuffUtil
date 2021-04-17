@@ -496,7 +496,7 @@ namespace BuffUtil
                 if (isDead)
                     return false;
 
-                buffs = GameController.Game.IngameState.Data.LocalPlayer.GetComponent<Life>().Buffs;
+                buffs = GameController.Game.IngameState.Data.LocalPlayer.GetComponent<ExileCore.PoEMemory.Components.Buffs>().BuffsList;
                 if (buffs == null)
                     return false;
 
